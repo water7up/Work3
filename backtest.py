@@ -6,7 +6,7 @@ What makes it 'honest':
   * parameters chosen on the in-sample period only, then judged once on an untouched out-of-sample period
   * gross vs net shown side by side, so you see exactly how much costs eat
 
-  python backtest.py            -> prints metrics and writes report/*.png + report/summary.md
+  python backtest.py            -> prints metrics and writes *.png + summary.md next to the script
 """
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).parent
-DATA, REPORT = ROOT / "data", ROOT / "report"
+DATA = REPORT = ROOT  # flat layout: data and report files sit next to the scripts
 FEE, SLIP = 0.00055, 0.0002              # Bybit taker fee and assumed slippage, per side
 SPLIT = "2024-07-01"                      # in-sample before, out-of-sample from here on
 GRID = [(f, s) for f in (10, 20, 30, 50) for s in (50, 100, 150, 200) if f < s]

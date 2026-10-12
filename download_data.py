@@ -1,10 +1,10 @@
-"""Download BTCUSDT perpetual 15m candles and funding history from Bybit's public API into ./data."""
+"""Download BTCUSDT perpetual 15m candles and funding history from Bybit's public API next to this script."""
 import csv, time
 from pathlib import Path
 import requests
 
 API = "https://api.bybit.com/v5/market"
-OUT = Path(__file__).parent / "data"
+OUT = Path(__file__).parent
 START = int(time.mktime((2021, 10, 1, 0, 0, 0, 0, 0, 0))) * 1000
 
 

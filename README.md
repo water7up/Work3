@@ -8,8 +8,8 @@ The point of this repo is the **method**, not the strategy.
 
 ## What it does
 
-1. `download_data.py` - downloads BTCUSDT 15m candles and funding history from the public Bybit v5 API into `data/`.
-2. `backtest.py` - resamples to 4h, runs a grid of 15 SMA (fast, slow) pairs, and writes a report to `report/`.
+1. `download_data.py` - downloads BTCUSDT 15m candles and funding history from the public Bybit v5 API (saved next to the scripts).
+2. `backtest.py` - resamples to 4h, runs a grid of 15 SMA (fast, slow) pairs, and writes the charts and `summary.md`.
 
 Rules that keep it honest:
 
@@ -29,9 +29,9 @@ Rules that keep it honest:
 | Max drawdown | -44.3% | -43.1% | -44.1% | -53.4% |
 | Sharpe | 0.84 | 0.56 | 0.45 | 0.53 |
 
-![Out-of-sample equity](report/equity_oos.png)
-![Full period](report/equity_full.png)
-![Yearly before vs after costs](report/yearly_costs.png)
+![Out-of-sample equity](equity_oos.png)
+![Full period](equity_full.png)
+![Yearly before vs after costs](yearly_costs.png)
 
 ## Honest conclusion
 
@@ -45,8 +45,8 @@ Rules that keep it honest:
 
 ```bash
 pip install -r requirements.txt
-python download_data.py      # optional: data/ already contains a snapshot
-python backtest.py           # writes report/*.png and report/summary.md
+python download_data.py      # optional: the CSVs in the repo are a snapshot
+python backtest.py           # writes *.png and summary.md
 ```
 
 Python 3.10+. To test your own idea, replace the signal in `run()`; the cost, funding and split logic stays as is.
